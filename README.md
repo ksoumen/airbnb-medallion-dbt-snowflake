@@ -1,1 +1,0 @@
-# airbnb-medallion-dbt-snowflake

@@ -16,8 +16,8 @@ A production-style **ELT data pipeline** built on the **Medallion Architecture**
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │                          SNOWFLAKE  ·  Data Warehouse                           │
 │                                                                                 │
-│  ┌──────────┐        ┌────────────┐   dbt    ┌────────────┐   dbt              │
-│  │  AWS S3  │──────▶ │   BRONZE   │ ───────▶ │   SILVER   │ ─────────▶         │
+│  ┌──────────┐        ┌────────────┐   dbt    ┌────────────┐   dbt               │
+│  │  AWS S3  │──────▶│   BRONZE   │ ───────▶ │   SILVER   │ ─────────▶         │
 │  │  Source  │        │            │          │            │           │         │
 │  │ CSV files│        │ bookings   │          │ bookings   │     ┌─────┴──────┐  │
 │  └──────────┘        │ listings   │          │ listings   │     │    GOLD    │  │
@@ -30,12 +30,12 @@ A production-style **ELT data pipeline** built on the **Medallion Architecture**
 │                      │  Tests   │         │  Snapshots   │      │ └────────┘ │  │
 │                      │ quality  │         │ SCD Type-2   │      └─────┬──────┘  │
 │                      └──────────┘         └──────────────┘            │         │
-│                                                                        ▼         │
-│                                                               ┌──────────────┐  │
-│   ┌───────────────────────────┐                              │    GitHub    │  │
-│   │   Macros  (Jinja SQL)     │                              │    Version   │  │
-│   │ tag · trimmer · multiply  │                              │    Control   │  │
-│   └───────────────────────────┘                              └──────────────┘  │
+│                                                                       ▼         │
+│                                                              ┌──────────────┐   │
+│   ┌───────────────────────────┐                              │    GitHub    │   │
+│   │   Macros  (Jinja SQL)     │                              │    Version   │   │
+│   │ tag · trimmer · multiply  │                              │    Control   │   │
+│   └───────────────────────────┘                              └──────────────┘   │
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
